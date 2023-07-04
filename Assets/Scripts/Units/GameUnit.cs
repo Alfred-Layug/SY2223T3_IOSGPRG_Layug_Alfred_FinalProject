@@ -7,7 +7,7 @@ public class GameUnit : MonoBehaviour
 {
     [SerializeField] protected string _name;
     [SerializeField] private Health _health;
-    [SerializeField] private float _speed;
+    [SerializeField] protected float _speed;
     [SerializeField] protected Gun _currentGun;
 
     public virtual void Initialize(string name, int maxHealth, float speed)
