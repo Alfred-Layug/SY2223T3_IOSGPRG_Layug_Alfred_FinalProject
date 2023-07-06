@@ -4,10 +4,20 @@ using UnityEngine;
 
 public enum WeaponSlot
 {
-    Primary, Secondary
+    Primary, 
+    Secondary
 }
 
 public enum Weapon
 {
-    Pistol, Shotgun, AutomaticRifle
+    Pistol, 
+    AutomaticRifle, 
+    Shotgun
+}
+
+public enum AmmoType
+{
+    PistolAmmo,
+    AutomaticRifleAmmo,
+    ShotgunAmmo
 }

@@ -2189,6 +2189,8 @@ GameObject:
   - component: {fileID: 284859218}
   - component: {fileID: 284859220}
   - component: {fileID: 284859221}
+  - component: {fileID: 284859225}
+  - component: {fileID: 284859226}
   - component: {fileID: 284859223}
   - component: {fileID: 284859224}
   m_Layer: 0
@@ -2259,7 +2261,7 @@ Transform:
   m_GameObject: {fileID: 284859217}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 281136010}
@@ -2284,7 +2286,6 @@ MonoBehaviour:
   _speed: 0
   _currentGun: {fileID: 1841364162}
   _movementJoystick: {fileID: 66869586}
-  _uiManager: {fileID: 670388472}
 --- !u!114 &284859221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2334,6 +2335,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &284859225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284859217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf2c2b5d14a68642acc833bf0c62f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 284859220}
+  _pistolAmmoMaxCarry: 0
+  _automaticRifleAmmoMaxCarry: 0
+  _shotgunAmmoMaxCarry: 0
+--- !u!114 &284859226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284859217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2f0987735c20dc42a18c3cfee694c2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementJoystick: {fileID: 66869586}
+  _playerCharacter: {fileID: 284859217}
 --- !u!1001 &314548806
 PrefabInstance:
   m_ObjectHideFlags: 0

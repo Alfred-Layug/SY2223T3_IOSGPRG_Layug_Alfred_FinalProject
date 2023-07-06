@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject _pistolAmmoPrefab;
     [SerializeField] private GameObject _automaticRifleAmmoPrefab;
     [SerializeField] private GameObject _shotgunAmmoPrefab;
-    [SerializeField] private List<Ammo> _ammoPickUps;
+    [SerializeField] private List<AmmoPickup> _ammoPickUps;
 
     private float _spawnCollisionCheckradius;
 
@@ -23,9 +23,9 @@ public class Spawner : MonoBehaviour
         SpawnEnemies(5, _meleeEnemyPrefab, "Arthur Melee", 100, 5);
         SpawnEnemies(3, _rangedEnemyPrefab, "Arthur Ranged", 75, 7);
         SpawnEnemies(1, _bossEnemyPrefab, "Arthur Boss", 1000, 3);
-        SpawnAmmo(3, _pistolAmmoPrefab, "Pistol Ammo");
-        SpawnAmmo(3, _automaticRifleAmmoPrefab, "Automatic Rifle Ammo");
-        SpawnAmmo(3, _shotgunAmmoPrefab, "Shotgun Ammo");
+        SpawnAmmo(5, _pistolAmmoPrefab, AmmoType.PistolAmmo);
+        SpawnAmmo(5, _automaticRifleAmmoPrefab, AmmoType.AutomaticRifleAmmo);
+        SpawnAmmo(5, _shotgunAmmoPrefab, AmmoType.ShotgunAmmo);
     }
 
     private void SpawnEnemies(int count, GameObject prefab, string name, int maxHealth, float speed)
@@ -57,7 +57,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void SpawnAmmo(int count, GameObject prefab, string ammoType)
+    private void SpawnAmmo(int count, GameObject prefab, AmmoType ammoType)
     {
         float _randomX;
         float _randomY;
@@ -74,10 +74,10 @@ public class Spawner : MonoBehaviour
                 GameObject ammoGO = Instantiate(prefab, _randomPosition, Quaternion.identity);
                 ammoGO.transform.parent = transform;
 
-                Ammo ammo = ammoGO.GetComponent<Ammo>();
-                _ammoPickUps.Add(ammo);
+                AmmoPickup ammoPickup = ammoGO.GetComponent<AmmoPickup>();
+                _ammoPickUps.Add(ammoPickup);
 
-                ammo.Initialize(ammoType);
+                ammoPickup.Initialize(ammoType);
             }
             else
             {

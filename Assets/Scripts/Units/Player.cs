@@ -4,38 +4,29 @@ using UnityEngine;
 
 public class Player : GameUnit
 {
-    public VariableJoystick _movementJoystick;
-    [SerializeField] private GameObject _uiManager;
-
     private void Start()
     {
-        base.Initialize("Austin", 100, 0.25f);
+        base.Initialize("Austin", 100, 0.2f);
     }
 
-    private void Update()
-    {
-        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        //{
-        //    Shoot();
-        //}
-    }
-
-    private void FixedUpdate()
-    {
-        Vector2 direction = Vector2.up * _movementJoystick.Vertical + Vector2.right * _movementJoystick.Horizontal;
-        transform.Translate(direction * _speed);
-    }
+    //private void Update()
+    //{
+    //    //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+    //    //{
+    //    //    Shoot();
+    //    //}
+    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Health health = collision.gameObject.GetComponent<Health>();
+        //Health health = collision.gameObject.GetComponent<Health>();
 
-        if (health != null)
-        {
-            health.TakeDamage(5);
+        //if (health != null)
+        //{
+        //    health.TakeDamage(5);
 
-            Debug.Log($"{_name} dealt 5 damage to {collision.gameObject.name}");
-        }
+        //    Debug.Log($"{_name} dealt 5 damage to {collision.gameObject.name}");
+        //}
     }
 
     public override void Shoot()
@@ -49,24 +40,8 @@ public class Player : GameUnit
         _currentGun = gun;
     }
 
-    public void CollectAmmo(string ammoType)
+    public float GetSpeed()
     {
-        UIManager uiManagerScript = _uiManager.GetComponent<UIManager>();
-
-        if (ammoType == "Pistol Ammo")
-        {
-            int ammoAmmount = Random.Range(1, 9);
-            uiManagerScript.UpdatePistolAmmoCount(ammoAmmount);
-        }
-        else if (ammoType == "Automatic Rifle Ammo")
-        {
-            int ammoAmmount = Random.Range(5, 16);
-            uiManagerScript.UpdateAutomaticRifleAmmoCount(ammoAmmount);
-        }
-        else if (ammoType == "Shotgun Ammo")
-        {
-            int ammoAmmount = Random.Range(1, 3);
-            uiManagerScript.UpdateShotgunAmmoCount(ammoAmmount);
-        }
+        return _speed;
     }
 }
