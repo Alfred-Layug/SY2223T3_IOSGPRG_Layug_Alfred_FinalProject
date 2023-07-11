@@ -1,43 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : GameUnit
 {
+    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private GameObject _nozzle;
+    [SerializeField] private Image _shootButton;
+    public bool _isReloading;
+    private Inventory _inventoryScript;
+
     private void Start()
     {
         base.Initialize("Austin", 100, 0.2f);
-    }
-
-    //private void Update()
-    //{
-    //    //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-    //    //{
-    //    //    Shoot();
-    //    //}
-    //}
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //Health health = collision.gameObject.GetComponent<Health>();
-
-        //if (health != null)
-        //{
-        //    health.TakeDamage(5);
-
-        //    Debug.Log($"{_name} dealt 5 damage to {collision.gameObject.name}");
-        //}
+        _isReloading = false;
+        _inventoryScript = this.gameObject.GetComponent<Inventory>();
     }
 
     public override void Shoot()
     {
-        base.Shoot();
-        Debug.Log($"{_name} is shooting");
+        if (!_isReloading)
+        {
+            base.Shoot();
+            _currentGun.Shoot(_bulletPrefab, _nozzle);
+            _inventoryScript.ExpendAmmo();
+            Debug.Log($"{_name} is shooting");
+        }
     }
 
-    public void SetCurrentGun(Gun gun)
+    public void SetCurrentGun(Gun gun, int ammoCount)
     {
         _currentGun = gun;
+        UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentGun, ammoCount);
     }
 
     public float GetSpeed()

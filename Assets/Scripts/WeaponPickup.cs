@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoPickup : MonoBehaviour
+public class WeaponPickup : MonoBehaviour
 {
-    [SerializeField] protected AmmoType _ammoType;
+    [SerializeField] protected Weapon _weapon;
 
-    public virtual void Initialize(AmmoType ammoType)
+    public virtual void Initialize(Weapon weapon)
     {
-        _ammoType = ammoType;
+        _weapon = weapon;
 
-        Debug.Log($"{_ammoType} has been initialized");
+        Debug.Log($"{_weapon} has been initialized");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,8 +18,8 @@ public class AmmoPickup : MonoBehaviour
         if (collision.GetComponent<Inventory>() != null)
         {
             Inventory playerInventory = collision.GetComponent<Inventory>();
-            playerInventory.AddAmmo(_ammoType);
-            Spawner.instance.RemoveAmmoPickupFromList(this);
+            playerInventory.LootWeapon(_weapon);
+            Spawner.instance.RemoveWeaponPickupFromList(this);
             Destroy(gameObject);
         }
     }

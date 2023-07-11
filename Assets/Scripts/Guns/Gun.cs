@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour
 
     private int _currentAmmo;
 
-    public virtual void Shoot()
+    public virtual void Shoot(GameObject prefab, GameObject nozzle)
     {
         Debug.Log("Base Gun Shooting");
     }

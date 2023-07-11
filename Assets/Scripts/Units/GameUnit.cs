@@ -8,7 +8,7 @@ public class GameUnit : MonoBehaviour
     [SerializeField] protected string _name;
     [SerializeField] private Health _health;
     [SerializeField] protected float _speed;
-    [SerializeField] protected Gun _currentGun;
+    public Gun _currentGun;
 
     public virtual void Initialize(string name, int maxHealth, float speed)
     {
@@ -20,10 +20,17 @@ public class GameUnit : MonoBehaviour
         Debug.Log($"{_name} has been initialized");
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Bullet>() != null)
+        {
+            Destroy(collision.gameObject);
+        }
+    }
+
     public virtual void Shoot()
     {
         Debug.Log($"Unit is shooting");
-        _currentGun.Shoot();
     }
 
     private void Movement()

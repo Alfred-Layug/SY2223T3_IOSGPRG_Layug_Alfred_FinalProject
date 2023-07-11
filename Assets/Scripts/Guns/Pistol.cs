@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Pistol : Gun
 {
-    public override void Shoot()
+    public override void Shoot(GameObject prefab, GameObject nozzle)
     {
-        base.Shoot();
-        Debug.Log("Single Shot");
+        if (UIManager.instance._currentPistolMagazineAmmo > 0)
+        {
+            Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
+            Debug.Log("Single Shot");
+        }
     }
 }

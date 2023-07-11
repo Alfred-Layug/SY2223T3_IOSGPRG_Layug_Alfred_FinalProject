@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Shotgun : Gun
 {
-    public override void Shoot()
+    public override void Shoot(GameObject prefab, GameObject nozzle)
     {
-        base.Shoot();
-        Debug.Log("Cone Shot");
+        if (UIManager.instance._currentShotgunMagazineAmmo > 0)
+        {
+            Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
+            Debug.Log("Cone Shot");
+        }
     }
 }
