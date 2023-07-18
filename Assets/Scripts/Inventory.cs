@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private Player _player;
     [SerializeField] private int _pistolAmmoMaxCarry;
     [SerializeField] private int _automaticRifleAmmoMaxCarry;
     [SerializeField] private int _shotgunAmmoMaxCarry;
     [SerializeField] private List<GameObject> _weapons;
+    public Player _player;
     public List<Gun> _gunTypes;
 
     private int _pistolAmmoCarry;
@@ -69,7 +69,7 @@ public class Inventory : MonoBehaviour
     public IEnumerator ReloadCurrentGun()
     {
         _player._isReloading = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(_player._currentGun._reloadTime);
         if (_player._currentGun == _gunTypes[0])
         {
             UIManager.instance._currentPistolMagazineAmmo = Mathf.Min(15, _pistolAmmoCarry);

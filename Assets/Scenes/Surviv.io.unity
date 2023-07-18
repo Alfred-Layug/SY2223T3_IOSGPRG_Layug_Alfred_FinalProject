@@ -896,8 +896,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 0
-  _fireRate: 0
   _spread: 0
+  _fireRate: 0
+  _reloadTime: 0
+  _canShoot: 0
 --- !u!1001 &81830258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2351,7 +2353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf2c2b5d14a68642acc833bf0c62f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 284859220}
   _pistolAmmoMaxCarry: 0
   _automaticRifleAmmoMaxCarry: 0
   _shotgunAmmoMaxCarry: 0
@@ -2359,6 +2360,7 @@ MonoBehaviour:
   - {fileID: 76384373}
   - {fileID: 1841364158}
   - {fileID: 1748376414}
+  _player: {fileID: 284859220}
   _gunTypes:
   - {fileID: 76384376}
   - {fileID: 1841364162}
@@ -3934,7 +3936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eaccedfe98ff4e49ba37fb4fdbcf06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryScript: {fileID: 284859225}
+  _inventoryScript: {fileID: 284859225}
   _pistolAmmoCountText: {fileID: 1034410732}
   _automaticRifleAmmoCountText: {fileID: 130326018}
   _shotgunAmmoCountText: {fileID: 1550028028}
@@ -9343,8 +9345,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 0
-  _fireRate: 0
   _spread: 0
+  _fireRate: 0
+  _reloadTime: 0
+  _canShoot: 0
 --- !u!1 &1767597275
 GameObject:
   m_ObjectHideFlags: 0
@@ -9979,8 +9983,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 0
-  _fireRate: 0
   _spread: 0
+  _fireRate: 0
+  _reloadTime: 0
+  _canShoot: 0
 --- !u!1 &1850936773
 GameObject:
   m_ObjectHideFlags: 0
@@ -11390,7 +11396,23 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 284859220}
           m_TargetAssemblyTypeName: Player, Assembly-CSharp
-          m_MethodName: Shoot
+          m_MethodName: OnPointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 284859220}
+          m_TargetAssemblyTypeName: Player, Assembly-CSharp
+          m_MethodName: OnPointerUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    [SerializeField] private Inventory inventoryScript;
+    [SerializeField] private Inventory _inventoryScript;
     [SerializeField] private TextMeshProUGUI _pistolAmmoCountText;
     [SerializeField] private TextMeshProUGUI _automaticRifleAmmoCountText;
     [SerializeField] private TextMeshProUGUI _shotgunAmmoCountText;
@@ -69,11 +69,11 @@ public class UIManager : MonoBehaviour
             _currentPistolAmmo = Mathf.Min(_currentPistolAmmo, _maxPistolAmmo);
             _pistolAmmoCountText.SetText(_currentPistolAmmo.ToString());
             _currentPistolBagAmmo = _currentPistolAmmo - _currentPistolMagazineAmmo;
-            if (!inventoryScript._primaryWeaponSelected && inventoryScript._secondaryWeapon == inventoryScript._gunTypes[0])
+            if (!_inventoryScript._primaryWeaponSelected && _inventoryScript._secondaryWeapon == _inventoryScript._gunTypes[0])
             {
-                if (_currentPistolMagazineAmmo <= 0)
+                if (_currentPistolMagazineAmmo <= 0 && _inventoryScript._player._currentGun == _inventoryScript._gunTypes[0])
                 {
-                    inventoryScript.StartCoroutine("ReloadCurrentGun");
+                    _inventoryScript.StartCoroutine("ReloadCurrentGun");
                     _reloadingText.enabled = true;
                 }
                 _magazineAmmoCountText.SetText(_currentPistolMagazineAmmo.ToString());
@@ -86,11 +86,11 @@ public class UIManager : MonoBehaviour
             _currentAutomaticRifleAmmo = Mathf.Min(_currentAutomaticRifleAmmo, _maxAutomaticRifleAmmo);
             _automaticRifleAmmoCountText.SetText(_currentAutomaticRifleAmmo.ToString());
             _currentAutomaticRifleBagAmmo = _currentAutomaticRifleAmmo - _currentAutomaticRifleMagazineAmmo;
-            if (inventoryScript._primaryWeaponSelected && inventoryScript._primaryWeapon == inventoryScript._gunTypes[1])
+            if (_inventoryScript._primaryWeaponSelected && _inventoryScript._primaryWeapon == _inventoryScript._gunTypes[1])
             {
-                if (_currentAutomaticRifleMagazineAmmo <= 0)
+                if (_currentAutomaticRifleMagazineAmmo <= 0 && _inventoryScript._player._currentGun == _inventoryScript._gunTypes[1])
                 {
-                    inventoryScript.StartCoroutine("ReloadCurrentGun");
+                    _inventoryScript.StartCoroutine("ReloadCurrentGun");
                     _reloadingText.enabled = true;
                 }
                 _magazineAmmoCountText.SetText(_currentAutomaticRifleMagazineAmmo.ToString());
@@ -103,11 +103,11 @@ public class UIManager : MonoBehaviour
             _currentShotgunAmmo = Mathf.Min(_currentShotgunAmmo, _maxShotgunAmmo);
             _shotgunAmmoCountText.SetText(_currentShotgunAmmo.ToString());
             _currentShotgunBagAmmo = _currentShotgunAmmo - _currentShotgunMagazineAmmo;
-            if (inventoryScript._primaryWeaponSelected && inventoryScript._primaryWeapon == inventoryScript._gunTypes[2])
+            if (_inventoryScript._primaryWeaponSelected && _inventoryScript._primaryWeapon == _inventoryScript._gunTypes[2])
             {
-                if (_currentShotgunMagazineAmmo <= 0)
+                if (_currentShotgunMagazineAmmo <= 0 && _inventoryScript._player._currentGun == _inventoryScript._gunTypes[2])
                 {
-                    inventoryScript.StartCoroutine("ReloadCurrentGun");
+                    _inventoryScript.StartCoroutine("ReloadCurrentGun");
                     _reloadingText.enabled = true;
                 }
                 _magazineAmmoCountText.SetText(_currentShotgunMagazineAmmo.ToString());
@@ -138,7 +138,7 @@ public class UIManager : MonoBehaviour
         {
             if (_currentPistolMagazineAmmo <= 0)
             {
-                inventoryScript.StartCoroutine("ReloadCurrentGun");
+                _inventoryScript.StartCoroutine("ReloadCurrentGun");
                 _currentPistolBagAmmo = totalAmmoCount;
                 _magazineAmmoCountText.SetText("0");
                 _bagAmmoCountText.SetText(_currentPistolBagAmmo.ToString());
@@ -154,7 +154,7 @@ public class UIManager : MonoBehaviour
         {
             if (_currentAutomaticRifleMagazineAmmo <= 0)
             {
-                inventoryScript.StartCoroutine("ReloadCurrentGun");
+                _inventoryScript.StartCoroutine("ReloadCurrentGun");
                 _currentAutomaticRifleBagAmmo = totalAmmoCount;
                 _magazineAmmoCountText.SetText("0");
                 _bagAmmoCountText.SetText(_currentAutomaticRifleBagAmmo.ToString());
@@ -170,7 +170,7 @@ public class UIManager : MonoBehaviour
         {
             if (_currentShotgunMagazineAmmo <= 0)
             {
-                inventoryScript.StartCoroutine("ReloadCurrentGun");
+                _inventoryScript.StartCoroutine("ReloadCurrentGun");
                 _currentShotgunBagAmmo = Mathf.Max(0, totalAmmoCount - 2);
                 _magazineAmmoCountText.SetText("0");
                 _bagAmmoCountText.SetText(_currentShotgunBagAmmo.ToString());
