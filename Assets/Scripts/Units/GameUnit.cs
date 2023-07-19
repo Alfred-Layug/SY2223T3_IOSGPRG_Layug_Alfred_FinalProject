@@ -33,6 +33,16 @@ public class GameUnit : MonoBehaviour
         Debug.Log($"Unit is shooting");
     }
 
+    public virtual void Wander()
+    {
+
+    }
+
+    public virtual void Seek()
+    {
+
+    }
+
     private void Movement()
     {
 

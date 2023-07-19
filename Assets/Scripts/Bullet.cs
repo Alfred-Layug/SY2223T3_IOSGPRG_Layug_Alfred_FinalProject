@@ -8,19 +8,11 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        _speed = 10f;
+        _speed = 15f;
     }
 
     private void Update()
     {
         transform.Translate(Vector2.up * _speed * Time.deltaTime);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<GameUnit>() != null)
-        {
-            Destroy(gameObject);
-        }
     }
 }

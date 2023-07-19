@@ -41,10 +41,10 @@ public class Spawner : MonoBehaviour
     {
         _spawnCollisionCheckradius = 1;
 
-        SpawnEnemies(5, _meleeEnemyPrefab, "Arthur Melee", 100, 5);
-        SpawnEnemies(5, _rangedEnemyPrefab, "Arthur Ranged", 75, 7);
-        SpawnEnemies(1, _bossEnemyPrefab, "Arthur Boss", 1000, 3);
-        SpawnPickups(40);
+        SpawnEnemies(7, _meleeEnemyPrefab, "Arthur Melee", 100, 4);
+        SpawnEnemies(7, _rangedEnemyPrefab, "Arthur Ranged", 75, 6);
+        SpawnEnemies(1, _bossEnemyPrefab, "Arthur Boss", 1000, 2);
+        SpawnPickups(50);
     }
 
     private void SpawnEnemies(int count, GameObject prefab, string name, int maxHealth, float speed)
