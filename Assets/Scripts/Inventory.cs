@@ -90,7 +90,6 @@ public class Inventory : MonoBehaviour
             _currentShotgunBagAmmo = Mathf.Max(0, _shotgunAmmoCarry - _currentShotgunMagazineAmmo);
             UIManager.instance.UpdateCurrentWeaponAmmoCount(_shotgunAmmoCarry, _currentShotgunMagazineAmmo, _currentShotgunBagAmmo);
         }
-
         _player._isReloading = false;
         UIManager.instance._reloadingText.enabled = false;
     }
@@ -166,7 +165,6 @@ public class Inventory : MonoBehaviour
                 UIManager.instance.UpdateAmmoCount(weapon, _shotgunAmmoCarry, _currentShotgunBagAmmo, _currentShotgunMagazineAmmo);
             }
         }
-
         UIManager.instance.UpdateWeaponSlotText(weapon);
     }
 
