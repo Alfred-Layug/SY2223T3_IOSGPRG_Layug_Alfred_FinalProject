@@ -31,13 +31,7 @@ public class MeleeEnemy : GameUnit
         if (collision.GetComponent<GameUnit>() != null)
         {
             _enemyNearby = false;
-            Wander();
         }
-    }
-
-    private void Start()
-    {
-        Wander();
     }
 
     private void Update()
@@ -46,14 +40,6 @@ public class MeleeEnemy : GameUnit
         {
             transform.Translate(_randomPosition * _speed * Time.deltaTime);
         }
-    }
-
-    public override void Wander()
-    {
-        base.Wander();
-        _enemyNearby = false;
-        _randomPosition = Random.insideUnitCircle;
-        StartCoroutine(ChangePosition());
     }
 
     private IEnumerator ChangePosition()

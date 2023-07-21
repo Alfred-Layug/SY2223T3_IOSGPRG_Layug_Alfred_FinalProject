@@ -453,6 +453,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8603109836034602649, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8603109836034602654, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -791,6 +795,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7268187333620470745, guid: 94d4955fc51bfd74aa8040cd4f30df09, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94d4955fc51bfd74aa8040cd4f30df09, type: 3}
 --- !u!4 &69487242 stripped
@@ -901,6 +909,9 @@ MonoBehaviour:
   _reloadTime: 0
   _bulletSpread: 0
   _canShoot: 0
+  _isFiring: 0
+  _stopFiring: 0
+  _inventoryScript: {fileID: 284859225}
 --- !u!1001 &81830258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -956,6 +967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MetalBarrel (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
 --- !u!4 &81830259 stripped
@@ -970,6 +985,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1458514362}
     m_Modifications:
+    - target: {fileID: 7370145489865852512, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7370145489865852513, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1079,6 +1098,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1137,6 +1160,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 12327537}
     m_Modifications:
+    - target: {fileID: 2612872719319399618, guid: de7672846037e5f4aa59f9c482c18bf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2612872719319399619, guid: de7672846037e5f4aa59f9c482c18bf9, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1250,7 +1277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -1382,6 +1409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8928113570634403303, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
 --- !u!4 &137126126 stripped
@@ -1444,6 +1475,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MetalBarrel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
 --- !u!4 &145803297 stripped
@@ -1461,6 +1496,10 @@ PrefabInstance:
     - target: {fileID: 2255134011970500068, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_Name
       value: Stone (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
@@ -1724,6 +1763,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8603109836034602649, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8603109836034602654, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1830,6 +1873,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8928113570634403303, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
 --- !u!4 &231363343 stripped
@@ -1923,6 +1970,10 @@ PrefabInstance:
     - target: {fileID: 2255134011970500068, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_Name
       value: Stone (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
@@ -2354,9 +2405,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf2c2b5d14a68642acc833bf0c62f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pistolAmmoMaxCarry: 0
-  _automaticRifleAmmoMaxCarry: 0
-  _shotgunAmmoMaxCarry: 0
+  _pistolAmmoMaxCarry: 90
+  _automaticRifleAmmoMaxCarry: 120
+  _shotgunAmmoMaxCarry: 60
   _weapons:
   - {fileID: 76384373}
   - {fileID: 1841364158}
@@ -2369,6 +2420,12 @@ MonoBehaviour:
   _primaryWeapon: {fileID: 0}
   _secondaryWeapon: {fileID: 0}
   _primaryWeaponSelected: 0
+  _currentPistolMagazineAmmo: 0
+  _currentPistolBagAmmo: 0
+  _currentAutomaticRifleMagazineAmmo: 0
+  _currentAutomaticRifleBagAmmo: 0
+  _currentShotgunMagazineAmmo: 0
+  _currentShotgunBagAmmo: 0
 --- !u!114 &284859226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2393,6 +2450,10 @@ PrefabInstance:
     - target: {fileID: 8603109836034602648, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_Name
       value: Crate (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603109836034602649, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8603109836034602654, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_RootOrder
@@ -2500,6 +2561,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7268187333620470745, guid: 94d4955fc51bfd74aa8040cd4f30df09, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94d4955fc51bfd74aa8040cd4f30df09, type: 3}
 --- !u!4 &315929223 stripped
@@ -2517,6 +2582,10 @@ PrefabInstance:
     - target: {fileID: 2255134011970500068, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_Name
       value: Stone (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
@@ -2719,6 +2788,10 @@ PrefabInstance:
     - target: {fileID: 2737111739541549948, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
       propertyPath: m_Name
       value: MetalBarrel (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
@@ -3144,6 +3217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MetalBarrel (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
 --- !u!4 &427161250 stripped
@@ -3158,6 +3235,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1458514362}
     m_Modifications:
+    - target: {fileID: 7370145489865852512, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7370145489865852513, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3223,6 +3304,10 @@ PrefabInstance:
     - target: {fileID: 2255134011970500068, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_Name
       value: Stone (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
@@ -3656,6 +3741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8603109836034602649, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8603109836034602654, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -3718,6 +3807,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8603109836034602649, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8603109836034602654, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -3779,6 +3872,10 @@ PrefabInstance:
     - target: {fileID: 2255134011970500068, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_Name
       value: Stone (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
@@ -3886,6 +3983,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MetalBarrel (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
 --- !u!4 &660966209 stripped
@@ -3946,12 +4047,6 @@ MonoBehaviour:
   _magazineAmmoCountText: {fileID: 384069964}
   _bagAmmoCountText: {fileID: 1888682304}
   _reloadingText: {fileID: 1876139541}
-  _currentPistolMagazineAmmo: 0
-  _currentPistolBagAmmo: 0
-  _currentAutomaticRifleMagazineAmmo: 0
-  _currentAutomaticRifleBagAmmo: 0
-  _currentShotgunMagazineAmmo: 0
-  _currentShotgunBagAmmo: 0
 --- !u!1 &698499961
 GameObject:
   m_ObjectHideFlags: 0
@@ -4151,6 +4246,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7268187333620470745, guid: 94d4955fc51bfd74aa8040cd4f30df09, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94d4955fc51bfd74aa8040cd4f30df09, type: 3}
 --- !u!4 &728576869 stripped
@@ -4291,6 +4390,10 @@ PrefabInstance:
     - target: {fileID: 8603109836034602648, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_Name
       value: Crate (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603109836034602649, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8603109836034602654, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_RootOrder
@@ -4507,6 +4610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8928113570634403303, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
 --- !u!4 &804603034 stripped
@@ -4568,6 +4675,10 @@ PrefabInstance:
     - target: {fileID: 8928113570634403302, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
       propertyPath: m_Name
       value: Bush (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8928113570634403303, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
@@ -4711,6 +4822,10 @@ PrefabInstance:
     - target: {fileID: 2737111739541549948, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
       propertyPath: m_Name
       value: MetalBarrel (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
@@ -4896,6 +5011,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MetalBarrel (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
 --- !u!4 &874241189 stripped
@@ -4913,6 +5032,10 @@ PrefabInstance:
     - target: {fileID: 8603109836034602648, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_Name
       value: Crate (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603109836034602649, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8603109836034602654, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_RootOrder
@@ -5063,6 +5186,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1458514362}
     m_Modifications:
+    - target: {fileID: 7370145489865852512, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7370145489865852513, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -5261,6 +5388,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1458514362}
     m_Modifications:
+    - target: {fileID: 7370145489865852512, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7370145489865852513, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -5446,7 +5577,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -5650,6 +5781,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040731183}
   m_CullTransparentMesh: 0
+--- !u!1 &1066484362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1066484365}
+  - component: {fileID: 1066484364}
+  - component: {fileID: 1066484363}
+  m_Layer: 0
+  m_Name: Minimap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!81 &1066484363
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066484362}
+  m_Enabled: 1
+--- !u!20 &1066484364
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066484362}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1066484365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066484362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1071701003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5704,6 +5919,10 @@ PrefabInstance:
     - target: {fileID: 7268187333620470744, guid: 94d4955fc51bfd74aa8040cd4f30df09, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268187333620470745, guid: 94d4955fc51bfd74aa8040cd4f30df09, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94d4955fc51bfd74aa8040cd4f30df09, type: 3}
@@ -5841,18 +6060,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2b3907279a38d4d97b06b0e39cfd9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meleeEnemyPrefab: {fileID: 450966519260485462, guid: 334c479fb9651d54c91a51247cef7e23, type: 3}
   _rangedEnemyPrefab: {fileID: 4460756141046730822, guid: a922451d8866285438f7d5fac1e3d0cc, type: 3}
   _bossEnemyPrefab: {fileID: 1430356286634148675, guid: b14bd29a6096e35428ce7cfc85c8dc66, type: 3}
   _enemies: []
-  _pistolAmmoPrefab: {fileID: 2533064257402782301, guid: 9d578f2af763e454f8106ed52dfad8c0, type: 3}
-  _automaticRifleAmmoPrefab: {fileID: 3746746084427434672, guid: 40f9294262d805b4ab8d38b11271233f, type: 3}
-  _shotgunAmmoPrefab: {fileID: 7253176184460540026, guid: ab451035f101abb43a6d677a1f2eb623, type: 3}
-  _ammoPickUps: []
-  _pistolLootPrefab: {fileID: 194904108295595764, guid: bcf1f7ea7152b70439cc95b0ff1cfa4b, type: 3}
-  _automaticRifleLootPrefab: {fileID: 9039255097892449764, guid: 6ef8303290ec9224da060dd4c0dda854, type: 3}
-  _shotgunLootPrefab: {fileID: 6297586195957944364, guid: c7824ae8061c38f43bdf16c8613ddcfd, type: 3}
-  _weaponPickUps: []
+  _ammoPickupPrefabs:
+  - {fileID: 2533064257402782301, guid: 9d578f2af763e454f8106ed52dfad8c0, type: 3}
+  - {fileID: 3746746084427434672, guid: 40f9294262d805b4ab8d38b11271233f, type: 3}
+  - {fileID: 7253176184460540026, guid: ab451035f101abb43a6d677a1f2eb623, type: 3}
+  _weaponPickupPrefabs:
+  - {fileID: 194904108295595764, guid: bcf1f7ea7152b70439cc95b0ff1cfa4b, type: 3}
+  - {fileID: 9039255097892449764, guid: 6ef8303290ec9224da060dd4c0dda854, type: 3}
+  - {fileID: 6297586195957944364, guid: c7824ae8061c38f43bdf16c8613ddcfd, type: 3}
+  _pickups: []
 --- !u!1001 &1093693223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5863,6 +6082,10 @@ PrefabInstance:
     - target: {fileID: 8603109836034602648, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_Name
       value: Crate (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603109836034602649, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8603109836034602654, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_RootOrder
@@ -5925,6 +6148,10 @@ PrefabInstance:
     - target: {fileID: 2255134011970500068, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_Name
       value: Stone (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
@@ -6024,6 +6251,10 @@ PrefabInstance:
     - target: {fileID: 2255134011970500068, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_Name
       value: Stone (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
@@ -6294,6 +6525,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1458514362}
     m_Modifications:
+    - target: {fileID: 7370145489865852512, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7370145489865852513, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -6515,6 +6750,10 @@ PrefabInstance:
     - target: {fileID: 2255134011970500068, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_Name
       value: Stone (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
@@ -6837,6 +7076,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 994769958}
     m_Modifications:
+    - target: {fileID: 697594395225241075, guid: c89d89c0d83b5aa4993def475ff6899a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 697594395225241076, guid: c89d89c0d83b5aa4993def475ff6899a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6946,6 +7189,10 @@ PrefabInstance:
     - target: {fileID: 2737111739541549948, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
       propertyPath: m_Name
       value: MetalBarrel (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
@@ -7158,6 +7405,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2612872719319399618, guid: de7672846037e5f4aa59f9c482c18bf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2612872719319399619, guid: de7672846037e5f4aa59f9c482c18bf9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -7267,6 +7518,10 @@ PrefabInstance:
     - target: {fileID: 8928113570634403302, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
       propertyPath: m_Name
       value: Bush (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8928113570634403303, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
@@ -7499,6 +7754,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -7557,6 +7816,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1458514362}
     m_Modifications:
+    - target: {fileID: 7370145489865852512, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7370145489865852513, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -7763,6 +8026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8603109836034602649, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8603109836034602654, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -7821,6 +8088,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 994769958}
     m_Modifications:
+    - target: {fileID: 379430807815500464, guid: 0b768880daa332a43a1c119a9a506d54, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 379430807815500478, guid: 0b768880daa332a43a1c119a9a506d54, type: 3}
       propertyPath: m_Name
       value: VerticalWorldEdge (1)
@@ -8011,6 +8282,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8928113570634403303, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
 --- !u!4 &1461787429 stripped
@@ -8138,6 +8413,10 @@ PrefabInstance:
     - target: {fileID: 2255134011970500068, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_Name
       value: Stone (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
@@ -8336,7 +8615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -8420,6 +8699,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1458514362}
     m_Modifications:
+    - target: {fileID: 7370145489865852512, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7370145489865852513, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -8566,6 +8849,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -8703,8 +8990,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 284859225}
         m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: ChangeToPrimaryWeapon
-        m_Mode: 1
+        m_MethodName: ChangeWeapon
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8806,6 +9093,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7268187333620470745, guid: 94d4955fc51bfd74aa8040cd4f30df09, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94d4955fc51bfd74aa8040cd4f30df09, type: 3}
 --- !u!4 &1625883501 stripped
@@ -8820,6 +9111,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1458514362}
     m_Modifications:
+    - target: {fileID: 7370145489865852512, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7370145489865852513, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -8929,6 +9224,10 @@ PrefabInstance:
     - target: {fileID: 2737111739541549948, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
       propertyPath: m_Name
       value: MetalBarrel (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
@@ -9179,6 +9478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MetalBarrel (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
 --- !u!4 &1671317847 stripped
@@ -9240,6 +9543,10 @@ PrefabInstance:
     - target: {fileID: 2737111739541549948, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
       propertyPath: m_Name
       value: MetalBarrel (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
@@ -9351,6 +9658,9 @@ MonoBehaviour:
   _reloadTime: 0
   _bulletSpread: 0
   _canShoot: 0
+  _isFiring: 0
+  _stopFiring: 0
+  _inventoryScript: {fileID: 284859225}
 --- !u!1 &1767597275
 GameObject:
   m_ObjectHideFlags: 0
@@ -9437,6 +9747,10 @@ PrefabInstance:
     - target: {fileID: 8603109836034602648, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_Name
       value: Crate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603109836034602649, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8603109836034602654, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_RootOrder
@@ -9544,6 +9858,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MetalBarrel (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
 --- !u!4 &1787688675 stripped
@@ -9605,6 +9923,10 @@ PrefabInstance:
     - target: {fileID: 2737111739541549948, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
       propertyPath: m_Name
       value: MetalBarrel (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
@@ -9712,6 +10034,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -9814,6 +10140,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4203733824672107630, guid: 55e3568bb0ea70548979761e502bbd11, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4203733824672107631, guid: 55e3568bb0ea70548979761e502bbd11, type: 3}
       propertyPath: m_Name
       value: Silo (1)
@@ -9835,6 +10165,10 @@ PrefabInstance:
     - target: {fileID: 2255134011970500068, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_Name
       value: Stone (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
@@ -9990,6 +10324,11 @@ MonoBehaviour:
   _reloadTime: 0
   _bulletSpread: 0
   _canShoot: 0
+  _isFiring: 0
+  _stopFiring: 0
+  _inventoryScript: {fileID: 284859225}
+  _bulletPrefab: {fileID: 7527657797677466131, guid: c77ec4d38071b9340948d61921f121d9, type: 3}
+  _nozzle: {fileID: 1665850528}
 --- !u!1 &1850936773
 GameObject:
   m_ObjectHideFlags: 0
@@ -10074,6 +10413,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 12327537}
     m_Modifications:
+    - target: {fileID: 2612872719319399618, guid: de7672846037e5f4aa59f9c482c18bf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2612872719319399619, guid: de7672846037e5f4aa59f9c482c18bf9, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -10642,12 +10985,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 284859225}
         m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: ChangeToSecondaryWeapon
-        m_Mode: 1
+        m_MethodName: ChangeWeapon
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11250,6 +11593,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8928113570634403303, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
 --- !u!4 &2017076380 stripped
@@ -11766,6 +12113,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8603109836034602649, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8603109836034602654, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -11937,6 +12288,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -11995,6 +12350,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1458514362}
     m_Modifications:
+    - target: {fileID: 7370145489865852512, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7370145489865852513, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -12057,6 +12416,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 994769958}
     m_Modifications:
+    - target: {fileID: 379430807815500464, guid: 0b768880daa332a43a1c119a9a506d54, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 379430807815500478, guid: 0b768880daa332a43a1c119a9a506d54, type: 3}
       propertyPath: m_Name
       value: VerticalWorldEdge
@@ -12114,6 +12477,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 994769958}
     m_Modifications:
+    - target: {fileID: 697594395225241075, guid: c89d89c0d83b5aa4993def475ff6899a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 697594395225241076, guid: c89d89c0d83b5aa4993def475ff6899a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -12175,6 +12542,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone
       objectReference: {fileID: 0}
+    - target: {fileID: 2255134011970500069, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2255134011970500070, guid: fd2c3e75a4fff8147ab9372e3efaee0f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -12228,6 +12599,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 12327537}
     m_Modifications:
+    - target: {fileID: 2612872719319399618, guid: de7672846037e5f4aa59f9c482c18bf9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2612872719319399619, guid: de7672846037e5f4aa59f9c482c18bf9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -12333,6 +12708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MetalBarrel
       objectReference: {fileID: 0}
+    - target: {fileID: 2737111739541549949, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd4bbab581b3b442af06ffbfb7a0bff, type: 3}
 --- !u!1001 &4203733826037008617
@@ -12388,6 +12767,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203733824672107630, guid: 55e3568bb0ea70548979761e502bbd11, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203733824672107630, guid: 55e3568bb0ea70548979761e502bbd11, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203733824672107630, guid: 55e3568bb0ea70548979761e502bbd11, type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4203733824672107631, guid: 55e3568bb0ea70548979761e502bbd11, type: 3}
@@ -12451,6 +12838,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7268187333620470745, guid: 94d4955fc51bfd74aa8040cd4f30df09, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94d4955fc51bfd74aa8040cd4f30df09, type: 3}
 --- !u!1001 &7370145490376459214
@@ -12460,6 +12851,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1458514362}
     m_Modifications:
+    - target: {fileID: 7370145489865852512, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7370145489865852513, guid: 4c8a2a714946f994da323b622e91ce02, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -12520,6 +12915,10 @@ PrefabInstance:
     - target: {fileID: 8603109836034602648, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_Name
       value: Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603109836034602649, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8603109836034602654, guid: 51c3f1b91bbff7c48b795ce46a04282a, type: 3}
       propertyPath: m_RootOrder
@@ -12621,6 +13020,10 @@ PrefabInstance:
     - target: {fileID: 8928113570634403302, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
       propertyPath: m_Name
       value: Bush
+      objectReference: {fileID: 0}
+    - target: {fileID: 8928113570634403303, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ac3284f644a994eae99db2f8b9779f, type: 3}

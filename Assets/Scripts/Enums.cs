@@ -14,10 +14,3 @@ public enum Weapon
     AutomaticRifle,
     Shotgun
 }
-
-public enum AmmoType
-{
-    PistolAmmo,
-    AutomaticRifleAmmo,
-    ShotgunAmmo
-}

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponPickup : MonoBehaviour
+public class Pickup : MonoBehaviour
 {
     [SerializeField] protected Weapon _weapon;
+    public bool _isWeaponPickup;
 
     public virtual void Initialize(Weapon weapon)
     {
@@ -17,7 +18,15 @@ public class WeaponPickup : MonoBehaviour
         if (collision.GetComponent<Inventory>() != null)
         {
             Inventory playerInventory = collision.GetComponent<Inventory>();
-            playerInventory.LootWeapon(_weapon);
+            if (_isWeaponPickup)
+            {
+                playerInventory.LootWeapon(_weapon);
+            }
+            else
+            {
+                playerInventory.AddAmmo(_weapon);
+            }
+            Spawner.instance.RemovePickupFromList(this);
             Destroy(gameObject);
         }
     }

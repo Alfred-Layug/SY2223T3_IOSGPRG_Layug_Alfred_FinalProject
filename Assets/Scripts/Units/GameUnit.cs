@@ -33,14 +33,9 @@ public class GameUnit : MonoBehaviour
         Debug.Log($"Unit is shooting");
     }
 
-    public virtual void Wander()
+    public virtual float GetEnemySpeed()
     {
-
-    }
-
-    public virtual void Seek()
-    {
-
+        return _speed;
     }
 
     private void Movement()

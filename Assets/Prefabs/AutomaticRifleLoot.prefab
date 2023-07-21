@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9039255097892449762}
   - component: {fileID: 9039255097892449765}
-  - component: {fileID: 923976280231334524}
   - component: {fileID: 8651223378473236620}
   - component: {fileID: 3998580814333118875}
+  - component: {fileID: 8980996171519108902}
   m_Layer: 0
   m_Name: AutomaticRifleLoot
   m_TagString: Untagged
@@ -88,19 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &923976280231334524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9039255097892449764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23ba1e4c9e094aa40a88ef348e998058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _weapon: 0
 --- !u!58 &8651223378473236620
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -130,8 +117,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 0
-  _fireRate: 0
   _spread: 0
+  _fireRate: 0
+  _reloadTime: 0
+  _bulletSpread: 0
+  _canShoot: 0
+  _inventoryScript: {fileID: 0}
+--- !u!114 &8980996171519108902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9039255097892449764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cae6db17ac7d5488b2882a41b77078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapon: 0
 --- !u!1 &9039255097900955188
 GameObject:
   m_ObjectHideFlags: 0

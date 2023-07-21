@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 1430356286634148687}
   - component: {fileID: 2130873071931848853}
   - component: {fileID: 1954892879577443265}
+  - component: {fileID: 2769030079628474153}
+  - component: {fileID: 3705581328092213924}
   m_Layer: 0
   m_Name: BossEnemy
   m_TagString: Untagged
@@ -263,6 +265,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!58 &2769030079628474153
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430356286634148675}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4
+--- !u!114 &3705581328092213924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430356286634148675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa7fb63e7c671b4b95c02a41ad8d13f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5706438908518694878
 GameObject:
   m_ObjectHideFlags: 0

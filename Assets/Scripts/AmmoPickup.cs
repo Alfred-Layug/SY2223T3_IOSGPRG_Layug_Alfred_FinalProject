@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class AmmoPickup : MonoBehaviour
 {
-    [SerializeField] protected AmmoType _ammoType;
+    [SerializeField] protected Weapon _weapon;
 
-    public virtual void Initialize(AmmoType ammoType)
+    public virtual void Initialize(Weapon weapon)
     {
-        _ammoType = ammoType;
-
-        Debug.Log($"{_ammoType} has been initialized");
+        _weapon = weapon;
+        Debug.Log($"{_weapon} has been initialized");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,8 +17,7 @@ public class AmmoPickup : MonoBehaviour
         if (collision.GetComponent<Inventory>() != null)
         {
             Inventory playerInventory = collision.GetComponent<Inventory>();
-            playerInventory.AddAmmo(_ammoType);
-            Spawner.instance.RemoveAmmoPickupFromList(this);
+            playerInventory.AddAmmo(_weapon);
             Destroy(gameObject);
         }
     }

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7253176184460540022}
   - component: {fileID: 7253176184460540025}
   - component: {fileID: 7253176184460540024}
-  - component: {fileID: 7253176184460540027}
   - component: {fileID: 6927820237874796455}
+  - component: {fileID: 6509946823100504925}
   m_Layer: 0
   m_Name: ShotgunAmmoLoot
   m_TagString: Untagged
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2f54414ae0275fe40abe64ae71eb7c9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -104,19 +104,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.73
---- !u!114 &7253176184460540027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7253176184460540026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edf7727b996934648b101a3adc36cb3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ammoType: 0
 --- !u!50 &6927820237874796455
 Rigidbody2D:
   serializedVersion: 4
@@ -138,6 +125,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6509946823100504925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253176184460540026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cae6db17ac7d5488b2882a41b77078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapon: 0
 --- !u!1 &7253176185664341617
 GameObject:
   m_ObjectHideFlags: 0

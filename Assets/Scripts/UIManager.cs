@@ -19,19 +19,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _bagAmmoCountText;
     public TextMeshProUGUI _reloadingText;
 
-    private int _currentPistolAmmo;
-    private int _currentAutomaticRifleAmmo;
-    private int _currentShotgunAmmo;
-    private int _maxPistolAmmo;
-    private int _maxAutomaticRifleAmmo;
-    private int _maxShotgunAmmo;
-    public int _currentPistolMagazineAmmo;
-    public int _currentPistolBagAmmo;
-    public int _currentAutomaticRifleMagazineAmmo;
-    public int _currentAutomaticRifleBagAmmo;
-    public int _currentShotgunMagazineAmmo;
-    public int _currentShotgunBagAmmo;
-
     private void Awake()
     {
         if (instance == null)
@@ -47,71 +34,59 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        _currentPistolAmmo = 0;
-        _currentAutomaticRifleAmmo = 0;
-        _currentShotgunAmmo = 0;
-        _maxPistolAmmo = 90;
-        _maxAutomaticRifleAmmo = 120;
-        _maxShotgunAmmo = 60;
-        _currentPistolMagazineAmmo = 0;
-        _currentAutomaticRifleMagazineAmmo = 0;
-        _currentShotgunMagazineAmmo = 0;
         _primaryWeaponText.SetText("Primary: No Weapon");
         _secondaryWeaponText.SetText("Secondary: No Weapon");
         _reloadingText.enabled = false;
     }
 
-    public void UpdateAmmoCount(AmmoType ammoType, int amount)
+    public void UpdateAmmoCount(Weapon weapon, int totalAmmoCount, int bagAmmoCount, int magazineAmmoCount)
     {
-        if (ammoType == AmmoType.PistolAmmo)
+        if (weapon == Weapon.Pistol)
         {
-            _currentPistolAmmo += amount;
-            _currentPistolAmmo = Mathf.Min(_currentPistolAmmo, _maxPistolAmmo);
-            _pistolAmmoCountText.SetText(_currentPistolAmmo.ToString());
-            _currentPistolBagAmmo = _currentPistolAmmo - _currentPistolMagazineAmmo;
-            if (!_inventoryScript._primaryWeaponSelected && _inventoryScript._secondaryWeapon == _inventoryScript._gunTypes[0])
+            _pistolAmmoCountText.SetText(totalAmmoCount.ToString());
+            if (!_inventoryScript._primaryWeaponSelected &&
+                _inventoryScript._secondaryWeapon == _inventoryScript._gunTypes[(int)Weapon.Pistol])
             {
-                if (_currentPistolMagazineAmmo <= 0 && _inventoryScript._player._currentGun == _inventoryScript._gunTypes[0])
+                if (magazineAmmoCount <= 0 && _inventoryScript._player._currentGun ==
+                    _inventoryScript._gunTypes[(int)Weapon.Pistol])
                 {
                     _inventoryScript.StartCoroutine("ReloadCurrentGun");
                     _reloadingText.enabled = true;
                 }
-                _magazineAmmoCountText.SetText(_currentPistolMagazineAmmo.ToString());
-                _bagAmmoCountText.SetText(_currentPistolBagAmmo.ToString());
+                _magazineAmmoCountText.SetText(magazineAmmoCount.ToString());
+                _bagAmmoCountText.SetText(bagAmmoCount.ToString());
             }
         }
-        else if (ammoType == AmmoType.AutomaticRifleAmmo)
+        else if (weapon == Weapon.AutomaticRifle)
         {
-            _currentAutomaticRifleAmmo += amount;
-            _currentAutomaticRifleAmmo = Mathf.Min(_currentAutomaticRifleAmmo, _maxAutomaticRifleAmmo);
-            _automaticRifleAmmoCountText.SetText(_currentAutomaticRifleAmmo.ToString());
-            _currentAutomaticRifleBagAmmo = _currentAutomaticRifleAmmo - _currentAutomaticRifleMagazineAmmo;
-            if (_inventoryScript._primaryWeaponSelected && _inventoryScript._primaryWeapon == _inventoryScript._gunTypes[1])
+            _automaticRifleAmmoCountText.SetText(totalAmmoCount.ToString());
+            if (_inventoryScript._primaryWeaponSelected &&
+                _inventoryScript._primaryWeapon == _inventoryScript._gunTypes[(int)Weapon.AutomaticRifle])
             {
-                if (_currentAutomaticRifleMagazineAmmo <= 0 && _inventoryScript._player._currentGun == _inventoryScript._gunTypes[1])
+                if (magazineAmmoCount <= 0 && _inventoryScript._player._currentGun ==
+                    _inventoryScript._gunTypes[(int)Weapon.AutomaticRifle])
                 {
                     _inventoryScript.StartCoroutine("ReloadCurrentGun");
                     _reloadingText.enabled = true;
                 }
-                _magazineAmmoCountText.SetText(_currentAutomaticRifleMagazineAmmo.ToString());
-                _bagAmmoCountText.SetText(_currentAutomaticRifleBagAmmo.ToString());
+                _magazineAmmoCountText.SetText(magazineAmmoCount.ToString());
+                _bagAmmoCountText.SetText(bagAmmoCount.ToString());
             }
         }
-        else if (ammoType == AmmoType.ShotgunAmmo)
+        else if (weapon == Weapon.Shotgun)
         {
-            _currentShotgunAmmo += amount;
-            _currentShotgunAmmo = Mathf.Min(_currentShotgunAmmo, _maxShotgunAmmo);
-            _shotgunAmmoCountText.SetText(_currentShotgunAmmo.ToString());
-            _currentShotgunBagAmmo = _currentShotgunAmmo - _currentShotgunMagazineAmmo;
-            if (_inventoryScript._primaryWeaponSelected && _inventoryScript._primaryWeapon == _inventoryScript._gunTypes[2])
+            _shotgunAmmoCountText.SetText(totalAmmoCount.ToString());
+            if (_inventoryScript._primaryWeaponSelected &&
+                _inventoryScript._primaryWeapon == _inventoryScript._gunTypes[(int)Weapon.Shotgun])
             {
-                if (_currentShotgunMagazineAmmo <= 0 && _inventoryScript._player._currentGun == _inventoryScript._gunTypes[2])
+                if (magazineAmmoCount <= 0 && _inventoryScript._player._currentGun ==
+                    _inventoryScript._gunTypes[(int)Weapon.Shotgun])
                 {
                     _inventoryScript.StartCoroutine("ReloadCurrentGun");
                     _reloadingText.enabled = true;
                 }
-                _magazineAmmoCountText.SetText(_currentShotgunMagazineAmmo.ToString());
-                _bagAmmoCountText.SetText(_currentShotgunBagAmmo.ToString());
+                _magazineAmmoCountText.SetText(magazineAmmoCount.ToString());
+                _bagAmmoCountText.SetText(bagAmmoCount.ToString());
             }
         }
     }
@@ -132,55 +107,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void UpdateCurrentWeaponAmmoCount(Gun gun, int totalAmmoCount)
+    public void UpdateCurrentWeaponAmmoCount(int totalAmmoCount, int magazineAmmoCount, int bagAmmoCount)
     {
-        if (gun.GetComponent<Pistol>() != null)
+        if (magazineAmmoCount <= 0)
         {
-            if (_currentPistolMagazineAmmo <= 0)
-            {
-                _inventoryScript.StartCoroutine("ReloadCurrentGun");
-                _currentPistolBagAmmo = totalAmmoCount;
-                _magazineAmmoCountText.SetText("0");
-                _bagAmmoCountText.SetText(_currentPistolBagAmmo.ToString());
-                _reloadingText.enabled = true;
-            }
-            else
-            {
-                _magazineAmmoCountText.SetText(_currentPistolMagazineAmmo.ToString());
-                _bagAmmoCountText.SetText(_currentPistolBagAmmo.ToString());
-            }
+            _inventoryScript.StartCoroutine("ReloadCurrentGun");
+            _magazineAmmoCountText.SetText("0");
+            _bagAmmoCountText.SetText(bagAmmoCount.ToString());
+            _reloadingText.enabled = true;
         }
-        else if (gun.GetComponent<AutomaticRifle>() != null)
+        else
         {
-            if (_currentAutomaticRifleMagazineAmmo <= 0)
-            {
-                _inventoryScript.StartCoroutine("ReloadCurrentGun");
-                _currentAutomaticRifleBagAmmo = totalAmmoCount;
-                _magazineAmmoCountText.SetText("0");
-                _bagAmmoCountText.SetText(_currentAutomaticRifleBagAmmo.ToString());
-                _reloadingText.enabled = true;
-            }
-            else
-            {
-                _magazineAmmoCountText.SetText(_currentAutomaticRifleMagazineAmmo.ToString());
-                _bagAmmoCountText.SetText(_currentAutomaticRifleBagAmmo.ToString());
-            }
-        }
-        else if (gun.GetComponent<Shotgun>() != null)
-        {
-            if (_currentShotgunMagazineAmmo <= 0)
-            {
-                _inventoryScript.StartCoroutine("ReloadCurrentGun");
-                _currentShotgunBagAmmo = Mathf.Max(0, totalAmmoCount - 2);
-                _magazineAmmoCountText.SetText("0");
-                _bagAmmoCountText.SetText(_currentShotgunBagAmmo.ToString());
-                _reloadingText.enabled = true;
-            }
-            else
-            {
-                _magazineAmmoCountText.SetText(_currentShotgunMagazineAmmo.ToString());
-                _bagAmmoCountText.SetText(_currentShotgunBagAmmo.ToString());
-            }
+            _magazineAmmoCountText.SetText(magazineAmmoCount.ToString());
+            _bagAmmoCountText.SetText(bagAmmoCount.ToString());
         }
     }
 }
