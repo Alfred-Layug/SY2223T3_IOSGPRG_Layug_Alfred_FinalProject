@@ -33,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
             if (Vector3.Distance(transform.position, _enemyDetected.transform.position) > 4)
             {
                 transform.position = Vector2.MoveTowards(transform.position, _enemyDetected.transform.position,
-                        _gameUnitScript.GetEnemySpeed() * Time.deltaTime * 0.5f);
+                        _gameUnitScript.GetEnemySpeed() * Time.deltaTime * 0.25f);
             }
             transform.up = _enemyDetected.transform.position - transform.position;
         }
