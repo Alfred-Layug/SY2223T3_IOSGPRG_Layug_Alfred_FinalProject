@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -28,6 +29,8 @@ public class Inventory : MonoBehaviour
     public int _currentAutomaticRifleBagAmmo;
     public int _currentShotgunMagazineAmmo;
     public int _currentShotgunBagAmmo;
+    public int _currentRocketLauncherMagazineAmmo;
+    public int _currentRocketLauncherBagAmmo;
 
     private void Start()
     {
@@ -39,6 +42,8 @@ public class Inventory : MonoBehaviour
         _currentPistolMagazineAmmo = 0;
         _currentAutomaticRifleMagazineAmmo = 0;
         _currentShotgunMagazineAmmo = 0;
+        _currentRocketLauncherMagazineAmmo = 0;
+        _currentRocketLauncherBagAmmo = 10;
     }
 
     public void ChangeWeapon(int weaponSlot)
@@ -50,11 +55,15 @@ public class Inventory : MonoBehaviour
             ShowWeapon(_weapon1);
             if (_weapon1 == Weapon.AutomaticRifle)
             {
-                UIManager.instance.UpdateCurrentWeaponAmmoCount(_automaticRifleAmmoCarry, _currentAutomaticRifleMagazineAmmo, _currentAutomaticRifleBagAmmo);
+                UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentAutomaticRifleMagazineAmmo, _currentAutomaticRifleBagAmmo);
             }
             else if (_weapon1 == Weapon.Shotgun)
             {
-                UIManager.instance.UpdateCurrentWeaponAmmoCount(_shotgunAmmoCarry, _currentShotgunMagazineAmmo, _currentShotgunBagAmmo);
+                UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentShotgunMagazineAmmo, _currentShotgunBagAmmo);
+            }
+            else if (_weapon1 == Weapon.RocketLauncher)
+            {
+                UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentRocketLauncherMagazineAmmo, _currentRocketLauncherBagAmmo);
             }
             _primaryWeaponSelected = true;
         }
@@ -63,7 +72,7 @@ public class Inventory : MonoBehaviour
             HideWeapons();
             _player.SetCurrentGun(_secondaryWeapon);
             ShowWeapon(_weapon2);
-            UIManager.instance.UpdateCurrentWeaponAmmoCount(_pistolAmmoCarry, _currentPistolMagazineAmmo, _currentPistolBagAmmo);
+            UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentPistolMagazineAmmo, _currentPistolBagAmmo);
             _primaryWeaponSelected = false;
         }
     }
@@ -76,19 +85,25 @@ public class Inventory : MonoBehaviour
         {
             _currentPistolMagazineAmmo = Mathf.Min(15, _currentPistolMagazineAmmo + _currentPistolBagAmmo);
             _currentPistolBagAmmo = Mathf.Max(0, _pistolAmmoCarry - _currentPistolMagazineAmmo);
-            UIManager.instance.UpdateCurrentWeaponAmmoCount(_pistolAmmoCarry, _currentPistolMagazineAmmo, _currentPistolBagAmmo);
+            UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentPistolMagazineAmmo, _currentPistolBagAmmo);
         }
         else if (_player._currentGun == _gunTypes[(int)Weapon.AutomaticRifle])
         {
             _currentAutomaticRifleMagazineAmmo = Mathf.Min(30, _currentAutomaticRifleMagazineAmmo + _currentAutomaticRifleBagAmmo);
             _currentAutomaticRifleBagAmmo = Mathf.Max(0, _automaticRifleAmmoCarry - _currentAutomaticRifleMagazineAmmo);
-            UIManager.instance.UpdateCurrentWeaponAmmoCount(_automaticRifleAmmoCarry, _currentAutomaticRifleMagazineAmmo, _currentAutomaticRifleBagAmmo);
+            UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentAutomaticRifleMagazineAmmo, _currentAutomaticRifleBagAmmo);
         }
         else if (_player._currentGun == _gunTypes[(int)Weapon.Shotgun])
         {
             _currentShotgunMagazineAmmo = Mathf.Min(2, _currentShotgunMagazineAmmo + _currentShotgunBagAmmo);
             _currentShotgunBagAmmo = Mathf.Max(0, _shotgunAmmoCarry - _currentShotgunMagazineAmmo);
-            UIManager.instance.UpdateCurrentWeaponAmmoCount(_shotgunAmmoCarry, _currentShotgunMagazineAmmo, _currentShotgunBagAmmo);
+            UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentShotgunMagazineAmmo, _currentShotgunBagAmmo);
+        }
+        else if (_player._currentGun == _gunTypes[(int)Weapon.RocketLauncher])
+        {
+            _currentRocketLauncherMagazineAmmo = Mathf.Min(1, _currentRocketLauncherBagAmmo);
+            _currentRocketLauncherBagAmmo = Mathf.Max(0, _currentRocketLauncherBagAmmo - 1);
+            UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentRocketLauncherMagazineAmmo, _currentRocketLauncherBagAmmo);
         }
         _player._isReloading = false;
         UIManager.instance._reloadingText.enabled = false;
@@ -138,7 +153,7 @@ public class Inventory : MonoBehaviour
             {
                 ShowWeapon(weapon);  //Show pistol
                 _player.SetCurrentGun(_secondaryWeapon);
-                UIManager.instance.UpdateCurrentWeaponAmmoCount(_pistolAmmoCarry, _currentPistolMagazineAmmo, _currentPistolBagAmmo);
+                UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentPistolMagazineAmmo, _currentPistolBagAmmo);
             }
         }
         else if (weapon == Weapon.AutomaticRifle && _primaryWeapon != _gunTypes[(int)weapon])
@@ -150,7 +165,7 @@ public class Inventory : MonoBehaviour
             {
                 ShowWeapon(weapon);  //Show automatic rifle
                 _player.SetCurrentGun(_primaryWeapon);
-                UIManager.instance.UpdateAmmoCount(weapon, _automaticRifleAmmoCarry, _currentAutomaticRifleBagAmmo, _currentAutomaticRifleMagazineAmmo);
+                UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentAutomaticRifleMagazineAmmo, _currentAutomaticRifleBagAmmo);
             }
         }
         else if (weapon == Weapon.Shotgun && _primaryWeapon != _gunTypes[(int)weapon])
@@ -162,7 +177,19 @@ public class Inventory : MonoBehaviour
             {
                 ShowWeapon(weapon);  //Show shotgun
                 _player.SetCurrentGun(_primaryWeapon);
-                UIManager.instance.UpdateAmmoCount(weapon, _shotgunAmmoCarry, _currentShotgunBagAmmo, _currentShotgunMagazineAmmo);
+                UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentShotgunMagazineAmmo, _currentShotgunBagAmmo);
+            }
+        }
+        else if (weapon == Weapon.RocketLauncher && _primaryWeapon != _gunTypes[(int)weapon])
+        {
+            _primaryWeapon = _gunTypes[(int)weapon];
+            _weapon1 = weapon;
+
+            if (_primaryWeaponSelected)
+            {
+                ShowWeapon(weapon);  //Show rocket launcher
+                _player.SetCurrentGun(_primaryWeapon);
+                UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentRocketLauncherMagazineAmmo, _currentRocketLauncherBagAmmo);
             }
         }
         UIManager.instance.UpdateWeaponSlotText(weapon);
@@ -184,7 +211,7 @@ public class Inventory : MonoBehaviour
 
     public void ExpendAmmo()
     {
-        if (!_primaryWeaponSelected && _secondaryWeapon == _gunTypes[0] &&
+        if (!_primaryWeaponSelected && _secondaryWeapon == _gunTypes[(int)Weapon.Pistol] &&
                 _currentPistolMagazineAmmo > 0)
         {
             _pistolAmmoCarry--;
@@ -192,19 +219,25 @@ public class Inventory : MonoBehaviour
             UIManager.instance.UpdateAmmoCount(Weapon.Pistol, _pistolAmmoCarry, _currentPistolBagAmmo, _currentPistolMagazineAmmo);
         }
 
-        if (_primaryWeaponSelected && _primaryWeapon == _gunTypes[1] &&
+        if (_primaryWeaponSelected && _primaryWeapon == _gunTypes[(int)Weapon.AutomaticRifle] &&
                 _currentAutomaticRifleMagazineAmmo > 0)
         {
             _automaticRifleAmmoCarry--;
             _currentAutomaticRifleMagazineAmmo--;
             UIManager.instance.UpdateAmmoCount(Weapon.AutomaticRifle, _automaticRifleAmmoCarry, _currentAutomaticRifleBagAmmo, _currentAutomaticRifleMagazineAmmo);
         }
-        else if (_primaryWeaponSelected && _primaryWeapon == _gunTypes[2] &&
+        else if (_primaryWeaponSelected && _primaryWeapon == _gunTypes[(int)Weapon.Shotgun] &&
                 _currentShotgunMagazineAmmo > 0)
         {
             _shotgunAmmoCarry--;
             _currentShotgunMagazineAmmo--;
             UIManager.instance.UpdateAmmoCount(Weapon.Shotgun, _shotgunAmmoCarry, _currentShotgunBagAmmo, _currentShotgunMagazineAmmo);
+        }
+        else if (_primaryWeaponSelected && _primaryWeapon == _gunTypes[(int)Weapon.RocketLauncher] &&
+                _currentRocketLauncherMagazineAmmo > 0)
+        {
+            _currentRocketLauncherMagazineAmmo--;
+            UIManager.instance.UpdateCurrentWeaponAmmoCount(_currentRocketLauncherMagazineAmmo, _currentRocketLauncherBagAmmo);
         }
     }
 }

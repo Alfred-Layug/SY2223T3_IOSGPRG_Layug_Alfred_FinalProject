@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Player : GameUnit
 {
     [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private GameObject _rocketPrefab;
     [SerializeField] private GameObject _nozzle;
     [SerializeField] private Image _shootButton;
     public bool _isReloading;
@@ -16,6 +17,7 @@ public class Player : GameUnit
     private void Start()
     {
         base.Initialize("Austin", 100, 0.2f);
+        Spawner.instance._units.Add(this);
         _isReloading = false;
         _inventoryScript = this.gameObject.GetComponent<Inventory>();
     }
@@ -37,7 +39,14 @@ public class Player : GameUnit
     public override void Shoot()
     {
         base.Shoot();
-        _currentGun.Shoot(_bulletPrefab, _nozzle);
+        if (_currentGun.GetComponent<RocketLauncher>() != null)
+        {
+            _currentGun.Shoot(_rocketPrefab, _nozzle);
+        }
+        else
+        {
+            _currentGun.Shoot(_bulletPrefab, _nozzle);
+        }
     }
 
     public void SetCurrentGun(Gun gun)
@@ -46,8 +55,12 @@ public class Player : GameUnit
         _currentGun._canShoot = true;
     }
 
-    public float GetSpeed()
+    public override void DoDeath()
     {
-        return _speed;
+        this.GetComponent<PlayerMovement>().enabled = false;
+        this.GetComponent<CircleCollider2D>().enabled = false;
+        UIManager.instance._gameplayCanvas.SetActive(false);
+        UIManager.instance._gameOverCanvas.SetActive(true);
+        Spawner.instance.DecreaseUnitCount(this);
     }
 }

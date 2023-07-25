@@ -9,11 +9,11 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] private GameObject _rangedEnemyPrefab;
     [SerializeField] private GameObject _bossEnemyPrefab;
-    [SerializeField] private List<GameUnit> _enemies;
+    public List<GameUnit> _units;
 
     [SerializeField] private List<GameObject> _ammoPickupPrefabs;
     [SerializeField] private List<GameObject> _weaponPickupPrefabs;
-    [SerializeField] private List<Pickup> _pickups;
+    [SerializeField] public List<Pickup> _pickups;
 
     private float _spawnCollisionCheckradius;
 
@@ -27,15 +27,15 @@ public class Spawner : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
-    {
+    {    //Start at because player counts toward this value
         _spawnCollisionCheckradius = 1;
-        SpawnEnemies(15, _rangedEnemyPrefab, "Arthur Ranged", 100, 6);
-        SpawnEnemies(1, _bossEnemyPrefab, "Arthur Boss", 1000, 2);
+        SpawnEnemies(23, _rangedEnemyPrefab, "Arthur Ranged", 100, 6);
+        SpawnEnemies(1, _bossEnemyPrefab, "Arthur Boss", 200, 4);
         SpawnPickups(50);
+        UIManager.instance.UpdateLeftAliveText(_units.Count);
     }
 
     private void SpawnEnemies(int count, GameObject prefab, string name, int maxHealth, float speed)
@@ -56,9 +56,8 @@ public class Spawner : MonoBehaviour
                 enemyGO.transform.parent = transform;
 
                 GameUnit gameUnit = enemyGO.GetComponent<GameUnit>();
-                _enemies.Add(gameUnit);
-
                 gameUnit.Initialize(name, maxHealth, speed);
+                _units.Add(gameUnit);
             }
             else
             {
@@ -125,8 +124,9 @@ public class Spawner : MonoBehaviour
         _pickups.Remove(pickup);
     }
 
-    public void RemoveUnitFromList(GameUnit gameUnit)
+    public void DecreaseUnitCount(GameUnit gameUnit)
     {
-        _enemies.Remove(gameUnit);
+        _units.Remove(gameUnit);
+        UIManager.instance.UpdateLeftAliveText(_units.Count);
     }
 }

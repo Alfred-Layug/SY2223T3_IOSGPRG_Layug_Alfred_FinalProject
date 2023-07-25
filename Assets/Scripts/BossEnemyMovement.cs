@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class BossEnemyMovement : MonoBehaviour
 {
     private bool _enemyNearby;
     private int _enemiesDetected;
@@ -30,12 +30,12 @@ public class EnemyMovement : MonoBehaviour
 
         if (collision.GetComponent<GameUnit>() != null && _enemyDetected != null)
         {
-            if (Vector3.Distance(transform.position, _enemyDetected.transform.position) < 5)
+            if (Vector3.Distance(transform.position, _enemyDetected.transform.position) < 10)
             {
                 _gameUnitScript.Shoot();
             }
 
-            if (Vector3.Distance(transform.position, _enemyDetected.transform.position) > 3)
+            if (Vector3.Distance(transform.position, _enemyDetected.transform.position) > 4)
             {
                 transform.position = Vector2.MoveTowards(transform.position, _enemyDetected.transform.position,
                         _gameUnitScript.GetSpeed() * Time.deltaTime * 0.25f);

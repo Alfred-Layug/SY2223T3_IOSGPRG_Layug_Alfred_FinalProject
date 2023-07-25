@@ -12,5 +12,6 @@ public enum Weapon
 {
     Pistol,
     AutomaticRifle,
-    Shotgun
+    Shotgun,
+    RocketLauncher
 }

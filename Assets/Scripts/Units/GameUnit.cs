@@ -8,6 +8,7 @@ public class GameUnit : MonoBehaviour
     [SerializeField] protected string _name;
     [SerializeField] private Health _health;
     [SerializeField] protected float _speed;
+    [SerializeField] private Rigidbody2D _rb2d;
     public Gun _currentGun;
 
     public virtual void Initialize(string name, int maxHealth, float speed)
@@ -15,6 +16,7 @@ public class GameUnit : MonoBehaviour
         _name = name;
         _health = gameObject.GetComponent<Health>();
         _health.Initialize(maxHealth);
+        _rb2d = gameObject.GetComponent<Rigidbody2D>();
         _speed = speed;
 
         Debug.Log($"{_name} has been initialized");
@@ -24,7 +26,14 @@ public class GameUnit : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Bullet>() != null)
         {
+            Bullet bulletScript = collision.gameObject.GetComponent<Bullet>();
+            _health.TakeDamage(bulletScript._damage);
+            if (_health.CurrentHealth <= 0)
+            {
+                DoDeath();
+            }
             Destroy(collision.gameObject);
+            _rb2d.velocity = Vector2.zero;
         }
     }
 
@@ -33,12 +42,12 @@ public class GameUnit : MonoBehaviour
         Debug.Log($"Unit is shooting");
     }
 
-    public virtual float GetEnemySpeed()
+    public virtual float GetSpeed()
     {
         return _speed;
     }
 
-    private void Movement()
+    public virtual void DoDeath()
     {
 
     }

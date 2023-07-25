@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class AutomaticRifle : Gun
@@ -10,11 +11,14 @@ public class AutomaticRifle : Gun
 
     private void Start()
     {
+        _damage = 15;
+        _canShoot = true;
         _isFiring = false;
         _stopFiring = false;
         _fireRate = 0.35f;
         _reloadTime = 2.3f;
         _bulletSpread = 1.1f;
+        _currentMagazineAmmo = 30;
     }
 
     private void Update()
@@ -31,6 +35,8 @@ public class AutomaticRifle : Gun
         if (_inventoryScript._currentAutomaticRifleMagazineAmmo > 0)
         {
             GameObject bullet = Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            bulletScript.SetBulletDamage(_damage);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             Vector2 dir = transform.rotation * Vector2.up;
             Vector2 perpendicularDir = Vector2.Perpendicular(dir) * Random.Range(-_bulletSpread, _bulletSpread);
@@ -38,6 +44,54 @@ public class AutomaticRifle : Gun
             _inventoryScript.ExpendAmmo();
             Debug.Log("Multi-Shot");
         }
+    }
+
+    public override void EnemyShoot(GameObject prefab, GameObject nozzle)
+    {
+        if (_canShoot && _currentMagazineAmmo > 0)
+        {
+            GameObject bullet = Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            bulletScript.SetBulletDamage(_damage);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            Vector2 dir = transform.rotation * Vector2.up;
+            Vector2 perpendicularDir = Vector2.Perpendicular(dir) * Random.Range(-_bulletSpread, _bulletSpread);
+            rb.velocity = (dir + perpendicularDir);
+            _canShoot = false;
+            _currentMagazineAmmo--;
+            if (_currentMagazineAmmo > 0)
+            {
+                StartCoroutine(AutomaticRifleFireRateTimer());
+            }
+            else
+            {
+                StartCoroutine(EnemyReload());
+            }
+        }
+    }
+
+    public override IEnumerator FireRateTimer()
+    {
+        yield return new WaitForSeconds(_fireRate);
+        if (!_stopFiring)
+        {
+            MakeIsFiringTrue();
+        }
+    }
+
+    private IEnumerator AutomaticRifleFireRateTimer()
+    {
+        yield return new WaitForSeconds(_fireRate);
+        _canShoot = true;
+    }
+
+    public override IEnumerator EnemyReload()
+    {
+        Debug.Log("Enemy is reloading assault rifle");
+        yield return new WaitForSeconds(_reloadTime * 2f);
+        _currentMagazineAmmo = 30;
+        _canShoot = true;
+        Debug.Log("Enemy finished reloading assault rifle");
     }
 
     public override void OnPointerDown()
@@ -63,14 +117,5 @@ public class AutomaticRifle : Gun
     {
         _isFiring = false;
         StartCoroutine(FireRateTimer());
-    }
-
-    public override IEnumerator FireRateTimer()
-    {
-        yield return new WaitForSeconds(_fireRate);
-        if (!_stopFiring)
-        {
-            MakeIsFiringTrue();
-        }
     }
 }

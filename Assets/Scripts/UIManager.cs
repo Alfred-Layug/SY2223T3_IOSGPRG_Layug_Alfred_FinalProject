@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,7 +18,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _secondaryWeaponText;
     [SerializeField] private TextMeshProUGUI _magazineAmmoCountText;
     [SerializeField] private TextMeshProUGUI _bagAmmoCountText;
+    [SerializeField] private TextMeshProUGUI _leftAliveCountText;
+    [SerializeField] private Image _retryButton;
     public TextMeshProUGUI _reloadingText;
+    public GameObject _gameplayCanvas;
+    public GameObject _gameOverCanvas;
 
     private void Awake()
     {
@@ -29,7 +34,6 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -105,9 +109,13 @@ public class UIManager : MonoBehaviour
         {
             _primaryWeaponText.SetText("Primary: Shotgun");
         }
+        else if (weapon == Weapon.RocketLauncher)
+        {
+            _primaryWeaponText.SetText("Primary: Rocket Launcher");
+        }
     }
 
-    public void UpdateCurrentWeaponAmmoCount(int totalAmmoCount, int magazineAmmoCount, int bagAmmoCount)
+    public void UpdateCurrentWeaponAmmoCount(int magazineAmmoCount, int bagAmmoCount)
     {
         if (magazineAmmoCount <= 0)
         {
@@ -121,5 +129,15 @@ public class UIManager : MonoBehaviour
             _magazineAmmoCountText.SetText(magazineAmmoCount.ToString());
             _bagAmmoCountText.SetText(bagAmmoCount.ToString());
         }
+    }
+
+    public void UpdateLeftAliveText(int amount)
+    {
+        _leftAliveCountText.SetText(amount.ToString());
+    }
+
+    public void RestartMatch()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

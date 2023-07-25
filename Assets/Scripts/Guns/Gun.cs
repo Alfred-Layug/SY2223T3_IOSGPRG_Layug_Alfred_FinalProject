@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private int _damage;
+    [SerializeField] protected int _damage;
     [SerializeField] private float _spread;
-    private int _currentAmmo;
+    public int _currentMagazineAmmo;
     public float _fireRate;
     public float _reloadTime;
     public float _bulletSpread;
@@ -17,6 +17,11 @@ public class Gun : MonoBehaviour
     public virtual void Shoot(GameObject prefab, GameObject nozzle)
     {
         Debug.Log("Base Gun Shooting");
+    }
+
+    public virtual void EnemyShoot(GameObject prefab, GameObject nozzle)
+    {
+
     }
 
     public virtual IEnumerator FireRateTimer()
@@ -34,8 +39,8 @@ public class Gun : MonoBehaviour
 
     }
 
-    private void Reload()
+    public virtual IEnumerator EnemyReload()
     {
-
+        yield return new WaitForSeconds(_reloadTime);
     }
 }

@@ -2,37 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol : Gun
+public class RocketLauncher : Gun
 {
     public Inventory _inventoryScript;
     private bool _triggerReleased;
 
     private void Start()
     {
-        _damage = 10;
+        _damage = 100;
         _canShoot = true;
         _triggerReleased = true;
-        _fireRate = 2.16f;
-        _reloadTime = 2f;
-        _bulletSpread = 1.2f;
-        _currentMagazineAmmo = 15;
+        _fireRate = 5f;
+        _reloadTime = 2.3f;
+        _currentMagazineAmmo = 1;
     }
 
     public override void Shoot(GameObject prefab, GameObject nozzle)
     {
-        if (_inventoryScript._currentPistolMagazineAmmo > 0 && _canShoot && _triggerReleased)
+        if (_inventoryScript._currentRocketLauncherMagazineAmmo > 0 && _canShoot && _triggerReleased)
         {
-            GameObject bullet = Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
-            bulletScript.SetBulletDamage(_damage);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            GameObject rocket = Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
+            Rigidbody2D rb = rocket.GetComponent<Rigidbody2D>();
             Vector2 dir = transform.rotation * Vector2.up;
-            Vector2 perpendicularDir = Vector2.Perpendicular(dir) * Random.Range(-_bulletSpread, _bulletSpread);
-            rb.velocity = (dir + perpendicularDir);
+            rb.velocity = (dir);
             _canShoot = false;
             StartCoroutine(FireRateTimer());
             _inventoryScript.ExpendAmmo();
-            Debug.Log("Single Shot");
+            Debug.Log("Rocket Fired");
         }
     }
 
@@ -40,13 +36,10 @@ public class Pistol : Gun
     {
         if (_canShoot && _currentMagazineAmmo > 0)
         {
-            GameObject bullet = Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
-            bulletScript.SetBulletDamage(_damage);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            GameObject rocket = Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
+            Rigidbody2D rb = rocket.GetComponent<Rigidbody2D>();
             Vector2 dir = transform.rotation * Vector2.up;
-            Vector2 perpendicularDir = Vector2.Perpendicular(dir) * Random.Range(-_bulletSpread, _bulletSpread);
-            rb.velocity = (dir + perpendicularDir);
+            rb.velocity = (dir);
             _canShoot = false;
             _currentMagazineAmmo--;
             if (_currentMagazineAmmo > 0)
@@ -68,11 +61,11 @@ public class Pistol : Gun
 
     public override IEnumerator EnemyReload()
     {
-        Debug.Log("Enemy is reloading pistol");
+        Debug.Log("Enemy is reloading rocket launcher");
         yield return new WaitForSeconds(_reloadTime * 2f);
-        _currentMagazineAmmo = 15;
+        _currentMagazineAmmo = 1;
         _canShoot = true;
-        Debug.Log("Enemy finished reloading pistol");
+        Debug.Log("Enemy finished reloading rocket launcher");
     }
 
     public override void OnPointerDown()
