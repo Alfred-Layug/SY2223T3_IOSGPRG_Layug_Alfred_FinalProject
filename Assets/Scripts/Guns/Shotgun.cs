@@ -20,7 +20,8 @@ public class Shotgun : Gun
 
     public override void Shoot(GameObject prefab, GameObject nozzle)
     {
-        if (_inventoryScript._currentShotgunMagazineAmmo > 0 && _canShoot && _triggerReleased)
+        if ((_inventoryScript != null && _inventoryScript._currentMagazineAmmo[(int)Weapon.Shotgun] > 0 && _canShoot && _triggerReleased)
+            || (_isEnemy && _canShoot && _currentMagazineAmmo > 0))
         {
             for (int i = 0; i < 8; i++)
             {
@@ -33,35 +34,22 @@ public class Shotgun : Gun
                 rb.velocity = (dir + perpendicularDir);
             }
             _canShoot = false;
-            StartCoroutine(FireRateTimer());
-            _inventoryScript.ExpendAmmo();
-            Debug.Log("Cone Shot");
-        }
-    }
-
-    public override void EnemyShoot(GameObject prefab, GameObject nozzle)
-    {
-        if (_canShoot && _currentMagazineAmmo > 0)
-        {
-            for (int i = 0; i < 8; i++)
-            {
-                GameObject bullet = Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
-                Bullet bulletScript = bullet.GetComponent<Bullet>();
-                bulletScript.SetBulletDamage(_damage);
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                Vector2 dir = transform.rotation * Vector2.up;
-                Vector2 perpendicularDir = Vector2.Perpendicular(dir) * Random.Range(-_bulletSpread, _bulletSpread);
-                rb.velocity = (dir + perpendicularDir);
-            }
-            _canShoot = false;
-            _currentMagazineAmmo--;
-            if (_currentMagazineAmmo > 0)
+            if (_inventoryScript != null)
             {
                 StartCoroutine(FireRateTimer());
+                _inventoryScript.ExpendAmmo(Weapon.Shotgun);
             }
             else
             {
-                StartCoroutine(EnemyReload());
+                _currentMagazineAmmo--;
+                if (_currentMagazineAmmo > 0)
+                {
+                    StartCoroutine(FireRateTimer());
+                }
+                else
+                {
+                    StartCoroutine(EnemyReload());
+                }
             }
         }
     }

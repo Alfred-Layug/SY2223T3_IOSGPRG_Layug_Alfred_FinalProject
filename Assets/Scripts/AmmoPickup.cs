@@ -17,7 +17,6 @@ public class AmmoPickup : MonoBehaviour
         if (collision.GetComponent<Inventory>() != null)
         {
             Inventory playerInventory = collision.GetComponent<Inventory>();
-            playerInventory.AddAmmo(_weapon);
             Destroy(gameObject);
         }
     }

@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        _speed = 15f;
+        _speed = 16f;
     }
 
     private void Update()

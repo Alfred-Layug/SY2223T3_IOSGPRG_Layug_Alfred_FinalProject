@@ -15,9 +15,17 @@ public class BossEnemy : GameUnit
         Debug.Log("Boss has spawned!");
     }
 
+    private void Start()
+    {
+        _currentGun._isEnemy = true;
+        _health._healthBar.enabled = false;
+        _health._healthBarBackground.enabled = false;
+        _health._healthText.enabled = false;
+    }
+
     public override void Shoot()
     {
-        _currentGun.EnemyShoot(_rocketPrefab, _nozzle);
+        _currentGun.Shoot(_rocketPrefab, _nozzle);
     }
 
     public override void DoDeath()
@@ -25,5 +33,16 @@ public class BossEnemy : GameUnit
         Spawner.instance.DecreaseUnitCount(this);
         Instantiate(_rocketLauncherDropPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    public override IEnumerator ShowEnemyHealthBar()
+    {
+        _health._healthBar.enabled = true;
+        _health._healthBarBackground.enabled = true;
+        _health._healthText.enabled = true;
+        yield return new WaitForSeconds(5);
+        _health._healthBar.enabled = false;
+        _health._healthBarBackground.enabled = false;
+        _health._healthText.enabled = false;
     }
 }

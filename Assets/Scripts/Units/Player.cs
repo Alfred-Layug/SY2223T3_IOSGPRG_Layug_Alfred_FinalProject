@@ -16,7 +16,7 @@ public class Player : GameUnit
 
     private void Start()
     {
-        base.Initialize("Austin", 100, 0.2f);
+        base.Initialize("Austin", 100, 0.12f);
         Spawner.instance._units.Add(this);
         _isReloading = false;
         _inventoryScript = this.gameObject.GetComponent<Inventory>();

@@ -13,15 +13,11 @@ public class Gun : MonoBehaviour
     public bool _canShoot;
     public bool _isFiring;
     public bool _stopFiring;
+    public bool _isEnemy;
 
     public virtual void Shoot(GameObject prefab, GameObject nozzle)
     {
         Debug.Log("Base Gun Shooting");
-    }
-
-    public virtual void EnemyShoot(GameObject prefab, GameObject nozzle)
-    {
-
     }
 
     public virtual IEnumerator FireRateTimer()

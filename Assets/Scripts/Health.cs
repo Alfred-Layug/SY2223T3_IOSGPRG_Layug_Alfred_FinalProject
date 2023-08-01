@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,9 @@ public class Health : MonoBehaviour
         get => _currentHealth;
     }
 
-    [SerializeField] private Image _healthBar;
+    public Image _healthBar;
+    public Image _healthBarBackground;
+    public TextMeshProUGUI _healthText;
     private float _maxHealth;
     private float _currentHealth;
 

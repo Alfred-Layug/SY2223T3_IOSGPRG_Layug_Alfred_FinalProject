@@ -19,36 +19,27 @@ public class RocketLauncher : Gun
 
     public override void Shoot(GameObject prefab, GameObject nozzle)
     {
-        if (_inventoryScript._currentRocketLauncherMagazineAmmo > 0 && _canShoot && _triggerReleased)
+        if ((_inventoryScript != null && _inventoryScript._currentMagazineAmmo[(int)Weapon.RocketLauncher] > 0 && _canShoot && _triggerReleased)
+            || (_isEnemy && _canShoot && _currentMagazineAmmo > 0))
         {
-            GameObject rocket = Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
-            Rigidbody2D rb = rocket.GetComponent<Rigidbody2D>();
-            Vector2 dir = transform.rotation * Vector2.up;
-            rb.velocity = (dir);
+            Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
             _canShoot = false;
-            StartCoroutine(FireRateTimer());
-            _inventoryScript.ExpendAmmo();
-            Debug.Log("Rocket Fired");
-        }
-    }
-
-    public override void EnemyShoot(GameObject prefab, GameObject nozzle)
-    {
-        if (_canShoot && _currentMagazineAmmo > 0)
-        {
-            GameObject rocket = Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
-            Rigidbody2D rb = rocket.GetComponent<Rigidbody2D>();
-            Vector2 dir = transform.rotation * Vector2.up;
-            rb.velocity = (dir);
-            _canShoot = false;
-            _currentMagazineAmmo--;
-            if (_currentMagazineAmmo > 0)
+            if (_inventoryScript != null)
             {
                 StartCoroutine(FireRateTimer());
+                _inventoryScript.ExpendAmmo(Weapon.RocketLauncher);
             }
             else
             {
-                StartCoroutine(EnemyReload());
+                _currentMagazineAmmo--;
+                if (_currentMagazineAmmo > 0)
+                {
+                    StartCoroutine(FireRateTimer());
+                }
+                else
+                {
+                    StartCoroutine(EnemyReload());
+                }
             }
         }
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spawner : MonoBehaviour
 {
@@ -32,8 +33,8 @@ public class Spawner : MonoBehaviour
     private void Start()
     {    //Start at because player counts toward this value
         _spawnCollisionCheckradius = 1;
-        SpawnEnemies(23, _rangedEnemyPrefab, "Arthur Ranged", 100, 6);
-        SpawnEnemies(1, _bossEnemyPrefab, "Arthur Boss", 200, 4);
+        SpawnEnemies(23, _rangedEnemyPrefab, "Arthur Ranged", 100, 5);
+        SpawnEnemies(1, _bossEnemyPrefab, "Arthur Boss", 200, 3);
         SpawnPickups(50);
         UIManager.instance.UpdateLeftAliveText(_units.Count);
     }
@@ -128,5 +129,14 @@ public class Spawner : MonoBehaviour
     {
         _units.Remove(gameUnit);
         UIManager.instance.UpdateLeftAliveText(_units.Count);
+        if (_units.Count == 1 && _units[0].GetComponent<Player>() != null)
+        {
+            ShowWinScreen();
+        }
+    }
+
+    public void ShowWinScreen()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

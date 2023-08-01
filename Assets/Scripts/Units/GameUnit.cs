@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameUnit : MonoBehaviour
 {
     [SerializeField] protected string _name;
-    [SerializeField] private Health _health;
+    [SerializeField] protected Health _health;
     [SerializeField] protected float _speed;
     [SerializeField] private Rigidbody2D _rb2d;
     public Gun _currentGun;
@@ -18,7 +18,6 @@ public class GameUnit : MonoBehaviour
         _health.Initialize(maxHealth);
         _rb2d = gameObject.GetComponent<Rigidbody2D>();
         _speed = speed;
-
         Debug.Log($"{_name} has been initialized");
     }
 
@@ -28,6 +27,7 @@ public class GameUnit : MonoBehaviour
         {
             Bullet bulletScript = collision.gameObject.GetComponent<Bullet>();
             _health.TakeDamage(bulletScript._damage);
+            StartCoroutine(ShowEnemyHealthBar());
             if (_health.CurrentHealth <= 0)
             {
                 DoDeath();
@@ -50,5 +50,10 @@ public class GameUnit : MonoBehaviour
     public virtual void DoDeath()
     {
 
+    }
+
+    public virtual IEnumerator ShowEnemyHealthBar()
+    {
+        yield return new WaitForSeconds(5);
     }
 }

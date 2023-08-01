@@ -203,7 +203,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 552ded63026f61540bfeef43f6b56df3, type: 3}
   m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -247,6 +247,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 3862711346036578806}
+  _healthBarBackground: {fileID: 3286389690079632248}
+  _healthText: {fileID: 2904963796210628950}
 --- !u!61 &1954892879577443265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -459,6 +461,7 @@ MonoBehaviour:
   _canShoot: 0
   _isFiring: 0
   _stopFiring: 0
+  _isEnemy: 0
   _inventoryScript: {fileID: 0}
 --- !u!1 &5706438908518694878
 GameObject:
@@ -696,7 +699,7 @@ GameObject:
   - component: {fileID: 1755492242721713136}
   - component: {fileID: 2904963796210628950}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: HPText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

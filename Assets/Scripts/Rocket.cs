@@ -29,6 +29,7 @@ public class Rocket : MonoBehaviour
             Health healthScript = collision.gameObject.GetComponent<Health>();
             GameUnit gameUnitScript = collision.gameObject.GetComponent<GameUnit>();
             healthScript.TakeDamage(_damage);
+            gameUnitScript.StartCoroutine("ShowEnemyHealthBar");
             if (healthScript.CurrentHealth <= 0)
             {
                 gameUnitScript.DoDeath();
@@ -38,7 +39,7 @@ public class Rocket : MonoBehaviour
 
     private void Start()
     {
-        _speed = 10f;
+        _speed = 15f;
         _damage = 100;
         this.GetComponent<CircleCollider2D>().enabled = false;
         _rb2d = this.gameObject.GetComponent<Rigidbody2D>();

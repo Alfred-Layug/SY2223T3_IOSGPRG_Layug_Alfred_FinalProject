@@ -32,23 +32,8 @@ public class AutomaticRifle : Gun
 
     public override void Shoot(GameObject prefab, GameObject nozzle)
     {
-        if (_inventoryScript._currentAutomaticRifleMagazineAmmo > 0)
-        {
-            GameObject bullet = Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
-            bulletScript.SetBulletDamage(_damage);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            Vector2 dir = transform.rotation * Vector2.up;
-            Vector2 perpendicularDir = Vector2.Perpendicular(dir) * Random.Range(-_bulletSpread, _bulletSpread);
-            rb.velocity = (dir + perpendicularDir);
-            _inventoryScript.ExpendAmmo();
-            Debug.Log("Multi-Shot");
-        }
-    }
-
-    public override void EnemyShoot(GameObject prefab, GameObject nozzle)
-    {
-        if (_canShoot && _currentMagazineAmmo > 0)
+        if ((_inventoryScript != null && _inventoryScript._currentMagazineAmmo[(int)Weapon.AutomaticRifle] > 0 && _canShoot)
+            || (_isEnemy && _canShoot && _currentMagazineAmmo > 0))
         {
             GameObject bullet = Instantiate(prefab, nozzle.transform.position, nozzle.transform.rotation);
             Bullet bulletScript = bullet.GetComponent<Bullet>();
@@ -58,14 +43,22 @@ public class AutomaticRifle : Gun
             Vector2 perpendicularDir = Vector2.Perpendicular(dir) * Random.Range(-_bulletSpread, _bulletSpread);
             rb.velocity = (dir + perpendicularDir);
             _canShoot = false;
-            _currentMagazineAmmo--;
-            if (_currentMagazineAmmo > 0)
+
+            if (_inventoryScript != null)
             {
-                StartCoroutine(AutomaticRifleFireRateTimer());
+                _inventoryScript.ExpendAmmo(Weapon.AutomaticRifle);
             }
             else
             {
-                StartCoroutine(EnemyReload());
+                _currentMagazineAmmo--;
+                if (_currentMagazineAmmo > 0)
+                {
+                    StartCoroutine(AutomaticRifleFireRateTimer());
+                }
+                else
+                {
+                    StartCoroutine(EnemyReload());
+                }
             }
         }
     }
@@ -75,6 +68,7 @@ public class AutomaticRifle : Gun
         yield return new WaitForSeconds(_fireRate);
         if (!_stopFiring)
         {
+            _canShoot = true;
             MakeIsFiringTrue();
         }
     }

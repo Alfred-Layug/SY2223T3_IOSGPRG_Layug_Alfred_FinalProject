@@ -93,6 +93,21 @@ public class UIManager : MonoBehaviour
                 _bagAmmoCountText.SetText(bagAmmoCount.ToString());
             }
         }
+        else
+        {
+            if (_inventoryScript._primaryWeaponSelected &&
+                _inventoryScript._primaryWeapon == _inventoryScript._gunTypes[(int)Weapon.RocketLauncher])
+            {
+                if (magazineAmmoCount <= 0 && _inventoryScript._player._currentGun ==
+                    _inventoryScript._gunTypes[(int)Weapon.RocketLauncher])
+                {
+                    _inventoryScript.StartCoroutine("ReloadCurrentGun");
+                    _reloadingText.enabled = true;
+                }
+                _magazineAmmoCountText.SetText(magazineAmmoCount.ToString());
+                _bagAmmoCountText.SetText(bagAmmoCount.ToString());
+            }
+        }
     }
 
     public void UpdateWeaponSlotText(Weapon weapon)
@@ -139,5 +154,10 @@ public class UIManager : MonoBehaviour
     public void RestartMatch()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
